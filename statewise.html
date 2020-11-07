@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>COVID-19 Tracker</title>
+    <link rel="shortcut icon" href="images/title.png" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script language="Javascript" src="jquery.js"></script>
+    <script type="text/JavaScript" src='state.js'></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+    .nav-link{
+        font-size: 30px;
+    }
+    html,body{
+        height: 100%;
+
+    }
+    .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #867979;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    }
+    .list-group-item{
+        font-size:20px; 
+    }
+
+    @media (min-width: 1025px)  {
+      #card1{
+          margin-bottom:200px; 
+      }  
+      
+      #date_form{
+        margin: 0 auto;
+        width:40% 
+    }
+
+     #selec1{
+        font-size:20px;
+    }
+    #selec2{
+        font-size:20px;
+    }
+
+    #header{
+        font-size:30px;
+    }
+  
+    }
+    @media (max-width: 1025px)  {
+      #card1{
+          margin-bottom:300px; 
+      } 
+      
+  
+ 
+  
+    }
+
+     @media (max-width: 1025px)  {
+    .card{
+        margin: 0 auto;
+    }
+    p{
+          font-size: 30px;
+      }
+    ul{
+        font-size:30px;
+    }
+    li{
+        font-size:50px;
+    }
+    .list-group-item{
+        font-size:40px; 
+    }
+    #header{
+        font-size:50px;
+    }
+
+     #selec1{
+        font-size:40px;
+    }
+    #selec2{
+        font-size:40px;
+    }
+   
+   
+}
+    
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" width="100px",height="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="nationwise.html">Nationwide<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="date.html">Datewise</a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="statewise.html">Statewide</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link disabled" href="resources.html">Info/Resources</a>
+                </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                About
+                        </button>
+                </form>
+            </div>
+    </nav> <!-- End of navigation section-->
+    <div class="container align-items-center" id="date_form">
+            <label for="listBox" class="col-form-label" ><span style="color:green;"id="selec1"><b>Select a state(mandatory)</b></span></label>
+            <select id="listBox" class="browser-default custom-select custom-select-lg mb-3" onchange='selct_district(this.value)'></select>
+            <label for="secondlist" class="col-form-label"><span style="color:green;"id="selec2"><b>Select a district(Optional)</b></span></label>
+            <select  id="secondlist" class="browser-default custom-select custom-select-lg mb-3">
+                    <option value="" disabled selected hidden>Select a state first</option>
+            </select>
+            <br>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="getInfo();">Get Info</button>
+    </div>
+    <section class="h-100" id="sc">
+            <header class="container h-100">
+                <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="d-flex flex-colum" >
+                                <div class="card" id="card1">
+                                    <div class="card-header bg-info" >
+                                        <center><span style="color:white;"id="header">COVID-19 Statewide Live Tracker </span></center>
+                                    </div>
+                                    <ul class="list-group list-group-flush ">
+                                        <li class="list-group-item" style="text-align: center;"><b>Location:</b><span id="7" ></span></li>
+                                        <li class="list-group-item" style="color:orange;text-align: center;"><b>Total Confirmed:</b><span id="1" ></span></li>
+                                        <li class="list-group-item" style="color:red;text-align:center;"><b>Total Deceased:</b><span id="2" ></span></li>
+                                        <li class="list-group-item" style="color:green;text-align:center;"><b>Total Recovered:</b><span id="3" ></span></li>
+                                        <li class="list-group-item" style="color:orange;text-align:center;"><b>Total Active:</b><span id="4" ></span></li>
+                                        
+                                    </ul>
+                                </div>
+                        </div>
+                </div>
+            </header>
+        </section> 
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><b>How to use the website!!!</b></h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                The website is divided into five sections. <b>Home</b> section contains some basic information about the infection,
+                                its symptoms and prevention. All these informations are collected <b>WHO</b> official website. The second setion is <b>Nationwide</b>
+                                section, which provides tracking information of the infection spread all over the country.The third section is <b>Datewise</b>
+                                section, which provides user an interactive datepicker from which they can pick a particular date
+                                and get to know about the status of infection on that particular timeframe.The fourth section is <b>Statewide</b> section, which
+                                provides user an interactive state and district picker from where they can get to know about the status of virus 
+                                in a particular state or district.The last section<b>Info/Resources</b> section which provides an interactive 
+                                dashboard for user to know information about all the help and resources provided by governement and non-government organization in their state
+                                or city. All these sections can be seamlessly navigated from one another using the navigation bar provided at the top of each seaction.
+                            
+                            </p>
+                        </div>
+                    <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><b>About the developer!!!</b></h5>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>This website is designed and developed by Alok kumar</b></p>
+                        <center><img src="images/self.jpg" height="300px",widht:"300px"></center>
+                        <p><b>About me: Nothing much just a coder who loves to code!!!</b></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+            </div>
+            </div>
+        
+        
+        
+                    
+        
+            <!-- Footer -->
+            <div class="footer">
+                <p>© 2020 Alok kumar All Rights Reserved</p>
+            </div>
+    <script>
+        document.getElementById("sc").style.visibility = "hidden";
+        var total_confirmed;
+        var total_deceased;
+        var total_recovered;
+        var daily_confirmed;
+        var daily_deceased;
+        var daily_recovered;
+        var parsed_data
+            
+        function getInfo(){
+            var state = document.getElementById("listBox").value;
+            var district = document.getElementById("secondlist").value;
+            if (state === "SELECT STATE"){
+                alert("Selection of state is compulsory before proceeding further!!!")
+                return
+            } 
+            if (district==="Select a district"){
+                $.ajax({
+                type: "GET",
+                url: 'https://api.covid19india.org/data.json',
+                success: function (response) {
+                    data = response;
+                    var flag = 0
+                    var len = data.statewise.length
+                    for(i=0;i<len;i++){
+                        if (data.statewise[i]["state"].includes(state)){
+                            parsed_data = data.statewise[i]
+                            flag = 1 
+                            break
+                        }
+                    }
+                    if (flag===0){
+                        document.getElementById("sc").style.visibility = "hidden";
+                        alert("Eithere there are no cases of Covid-19 in this state or data not available for this state!!!");
+                        return 
+                    }
+                    total_confirmed = parsed_data["confirmed"]
+                    total_deceased = parsed_data["deaths"]
+                    total_recovered = parsed_data["recovered"]
+                    total_active  = parsed_data["active"]
+                    location1 = parsed_data["state"]
+                    var confirmed = document.getElementById("1")
+                    confirmed.innerHTML =" "+" "+total_confirmed
+                    var totalDeceased = document.getElementById("2")
+                    totalDeceased.innerHTML =" "+" "+total_deceased
+                    var totalRecovered = document.getElementById("3")
+                    totalRecovered.innerHTML =" "+" "+total_recovered
+                    var Active = document.getElementById("4")
+                    Active.innerHTML =" "+" "+total_active
+                    var LocationId = document.getElementById("7")
+                    LocationId.innerHTML =" "+" "+location1
+                    document.getElementById("sc").style.visibility = "visible";
+                
+                }
+            });
+            }else{
+                $.ajax({
+                type: "GET",
+                url: 'https://api.covid19india.org/state_district_wise.json',
+                success: function (response) {
+                    data = response;
+                    var flag = 0
+                    if (state in data) {
+                        if (district in data[state]["districtData"]){
+                            parsed_data = data[state]["districtData"][district]
+                            flag=1
+                        }
+                    }
+                    if (flag===0){
+                        document.getElementById("sc").style.visibility = "hidden";
+                        alert("Eithere there are no cases of Covid-19 for this combination or data not available !!!");
+                        return 
+                    }
+                    total_confirmed = parsed_data["confirmed"]
+                    total_deceased = parsed_data["deceased"]
+                    total_recovered = parsed_data["recovered"]
+                    total_active  = parsed_data["active"]
+                    location1 = district+","+" "+state
+                    var confirmed = document.getElementById("1")
+                    confirmed.innerHTML =" "+" "+total_confirmed
+                    var totalDeceased = document.getElementById("2")
+                    totalDeceased.innerHTML =" "+" "+total_deceased
+                    var totalRecovered = document.getElementById("3")
+                    totalRecovered.innerHTML =" "+" "+total_recovered
+                    var Active = document.getElementById("4")
+                    Active.innerHTML =" "+" "+total_active
+                    var LocationId = document.getElementById("7")
+                    LocationId.innerHTML =" "+" "+location1
+                    document.getElementById("sc").style.visibility = "visible";
+                
+                }
+            });
+            
+            } 
+            return
+        
+    }    
+    </script>
+</body>
+</html>

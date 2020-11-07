@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>COVID-19 Tracker</title>
+    <link rel="shortcut icon" href="images/title.png" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+    .nav-link{
+        font-size: 30px;
+    }
+    html,body{
+        height: 100%;
+
+    }
+    .x {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #867979;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    }
+    .list-group-item{
+        font-size:20px; 
+    }
+    p{
+        padding: 6px;
+    }
+
+    /* @media (min-width: 1025px)  {
+      #card1{
+          margin-bottom:200px; 
+      }  
+ 
+  
+    } */
+
+
+@media (min-width: 1025px)  {
+    .card{
+        margin: 0 auto;
+        width:70% 
+    }
+    .card-header{
+        font-size:30px;
+    }
+    #card3{
+        padding-bottom: 60px;
+        
+    }
+}
+
+ @media (max-width: 1025px)  {
+    .card{
+        margin: 0 auto;
+        width:70% 
+    }
+    .card-header{
+        font-size:40px;
+    }
+    p{
+          font-size: 30px;
+      }
+    ul{
+        font-size:30px;
+    }
+    li{
+        font-size:30px;
+    }
+    .x{
+        display: none
+    }
+    #card3{
+        padding-bottom: 0px;
+        margin-bottom:30px;
+    }
+   
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" width="100px",height="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="nationwise.html">Nationwide<span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="date.html">Datewise</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="statewise.html">Statewide</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link disabled" href="resources.html">Info/Resources</a>
+                </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                About
+                        </button>
+                </form>
+            </div>
+            </nav>
+            <br>
+            <div class="container-flex">
+            <div class="card" id="card1">
+                <div class="card-header bg-info" >
+                    <span style="color:white;">What is COVID-19?</span>
+                </div>
+                <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+
+                        Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.
+                        
+                        The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. 
+                        
+                        The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).
+                        
+                        At this time, there are no specific vaccines or treatments for COVID-19.</p>
+            </div>
+            <br>
+           <div class="card" id="card2">
+                    <div class="card-header bg-info" >
+                        <span style="color:white;">Symptoms of the infection</span>
+                    </div>
+                    <p>The COVID-19 virus affects different people in different ways.  COVID-19 is a respiratory disease and most infected people will develop mild to moderate symptoms and recover without requiring special treatment.  People who have underlying medical conditions and those over 60 years old have a higher risk of developing severe disease and death.
+
+                            Common symptoms include:
+                            
+                            <b>fever,
+                            tiredness,
+                            dry cough.</b>
+                            Other symptoms include:
+                            
+                            <b>shortness of breath,
+                            aches and pains,
+                            sore throat,
+                            and very few people will report diarrhoea, nausea or a runny nose.</b>
+                            People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider or a COVID-19 information line for advice on testing and referral.
+                            
+                            People with fever, cough or difficulty breathing should call their doctor and seek medical attention.</p>
+            </div>
+
+            <br>
+            <div class="card" id="card3">
+                     <div class="card-header bg-info" >
+                         <span style="color:white;">Prevention is better than cure!!!</span>
+                     </div>
+                     <p>To prevent infection and to slow transmission of COVID-19, do the following:</p>
+                     <ul>
+                        <li>Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.</li>
+                        <li>Maintain at least 1 metre distance between you and people coughing or sneezing.</li>
+                        <li>Avoid touching your face.</li>
+                        <li>Cover your mouth and nose when coughing or sneezing.</li>
+                        <li>Stay home if you feel unwell.</li>
+                        <li>Refrain from smoking and other activities that weaken the lungs.</li>
+                        <li>Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</li>
+                    </ul>
+             </div>
+            </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>How to use the website!!!</b></h5>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        The website is divided into five sections. <b>Home</b> section contains some basic information about the infection,
+                        its symptoms and prevention. All these informations are collected <b>WHO</b> official website. The second setion is <b>Nationwide</b>
+                        section, which provides tracking information of the infection spread all over the country.The third section is <b>Datewise</b>
+                        section, which provides user an interactive datepicker from which they can pick a particular date
+                        and get to know about the status of infection on that particular timeframe.The fourth section is <b>Statewide</b> section, which
+                        provides user an interactive state and district picker from where they can get to know about the status of virus 
+                        in a particular state or district.The last section<b>Info/Resources</b> section which provides an interactive 
+                        dashboard for user to know information about all the help and resources provided by governement and non-government organization in their state
+                        or city. All these sections can be seamlessly navigated from one another using the navigation bar provided at the top of each seaction.
+                    
+                    </p>
+                </div>
+            <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>About the developer!!!</b></h5>
+            </div>
+            <div class="modal-body">
+                <p><b>This website is designed and developed by Alok kumar</b></p>
+                <center><img src="images/self.jpg" height="300px",widht:"300px"></center>
+                <p><b>About me: Nothing much just a coder who loves to code!!!</b></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+    </div>
+    </div>
+
+
+
+            
+
+    <!-- Footer -->
+    <div class="x">
+        <p>© 2020 Alok kumar All Rights Reserved</p>
+    </div>
+    <!-- Footer -->
+</body>
+</html>
